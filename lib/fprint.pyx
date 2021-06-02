@@ -438,7 +438,7 @@ cdef class Device:
             if self.ptr != NULL:
                 i = Image()
                 if fp_identify_finger_img(self.ptr, arr, &off, &i.ptr) == FP_VERIFY_MATCH:
-                    return (gallery[off], i)
+                    return (gallery[off], i, off)
             return (None, None)
         finally:
             free(arr)
